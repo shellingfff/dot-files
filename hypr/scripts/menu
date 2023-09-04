@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+
+if [[ ! $(pidof rofi) ]]; then
+	fuzzel
+else
+	pkill rofi
+fi
+
+#wofi --show drun --prompt 'Search...' --conf $HOME/.config/hypr/wofi/config  --style $HOME/.config/hypr/wofi/style.css --color $HOME/.config/hypr/wofi/colors
