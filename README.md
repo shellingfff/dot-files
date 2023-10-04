@@ -29,7 +29,7 @@ https_proxy=\"http://127.0.0.1:7890\"
 socks5_proxy=\"http://127.0.0.1:7890\"" >> /etc/environment
 ```
 
-#### Screeshot
+#### Screenshot
 
 xorg
 
@@ -144,11 +144,11 @@ yay -S fcitx5-input-support
 # set audo-start
 ```
 
-fcitx (and sogou pinyin):
+fcitx:
 
 ```shell
 sudo pacman -S fcitx-im
-yay -S fcitx-sogoupinyin fcitx-configtool
+yay -S  fcitx-configtool
 
 # root
 # set the environment varibles

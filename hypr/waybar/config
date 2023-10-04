@@ -11,7 +11,7 @@
   "margin-left": 15,
   "margin-right": 15,
 
-  "modules-left": ["wlr/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": [ "backlight", "pulseaudio", "cpu", "memory", "battery", "tray"],
 }

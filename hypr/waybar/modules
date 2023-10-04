@@ -15,7 +15,7 @@
       "smooth-scrolling-threshold": 1,
     },
 
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "all-outputs": true,
@@ -31,7 +31,6 @@
       "8": "8",
       "9": "9",
       "10": "10",
-      "focused": "",
       "default": ""
     },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
