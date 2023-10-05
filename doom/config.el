@@ -90,8 +90,8 @@
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-bottom)
 
 ;;  Start up maxinized
-(setq initial-frame-alist '((width . 120) (height . 40)))
-;;(setq initial-frame-alist '((fullscreen . maximized)))
+;;(setq initial-frame-alist '((width . 120) (height . 40)))
+(setq initial-frame-alist '((fullscreen . maximized)))
 
 ;;  relative line number
 (global-display-line-numbers-mode 1)
