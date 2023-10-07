@@ -110,18 +110,18 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Hack Nerd Font
+    family: Sarasa Mono SC
     style: Regular
   bold:
-    family: Hack Nerd Font
+    family: Sarasa Mono SC
     style: Bold
   italic:
-    family: Hack Nerd Font
+    family: Sarasa Mono SC
     style: Italic 
-    family: Hack Nerd Font
+    family: Sarasa Mono SC
     style: Bold Italic
 
-  size: 13.0
+  size: 18.0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the

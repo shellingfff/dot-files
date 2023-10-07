@@ -1,7 +1,12 @@
 
 get_backlight()
 {
-    echo $(xbacklight | sed 's/\..*//g')
+    #echo $(xbacklight | sed 's/\..*//g')
+    max=$(brightnessctl m)
+    cur=$(brightnessctl g)
+    per=$(echo "scale=2; $cur / $max * 100" | bc)
+    echo $(printf "%0.f" "$per")
+
 }
 
 get_date()

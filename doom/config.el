@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "shellingfff"
-      user-mail-address "shellingfff@proton.me")
+;; (setq user-full-name "John Doe"
+;;       user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -75,48 +75,16 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Move in the wrap line
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-(define-key evil-normal-state-map (kbd "$") 'evil-end-of-visual-line)
-(define-key evil-normal-state-map (kbd "0") 'evil-beginning-of-visual-line)
-
-(define-key evil-normal-state-map (kbd "H") 'previous-buffer)
-(define-key evil-normal-state-map (kbd "L") 'next-buffer)
-
-(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-(define-key evil-normal-state-map (kbd "C-j") 'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-k") 'evil-window-bottom)
-
-;;  Start up maxinized
-;;(setq initial-frame-alist '((width . 120) (height . 40)))
-(setq initial-frame-alist '((fullscreen . maximized)))
-
-;;  relative line number
-(global-display-line-numbers-mode 1)
-(setq display-line-numbers-type 'relative)
-
-;;  Set the font
-;; (setq doom-font (font-spec :family "Hack" :size 20))
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 20))
-(setq doom-unicode-font (font-spec :family "Noto Sans CJK SC" :size 20))
-
-;;  Always show the picture in the org mode
-(setq org-startup-with-inline-images t)
 
 ;; Set which-key's idle delay
 (setq which-key-idle-delay 0)
 
-(setq org-latex-create-formula-image-program 'dvisvgm)
 
+;;  Set the font
+;; (setq doom-font (font-spec :family "Hack" :size 20))
+(setq doom-font (font-spec :family "monospace" :size 20))
+(setq doom-unicode-font (font-spec :family "Noto Sans CJK SC" :size 20))
 
-;; Make tab selete instead of scroll through the list of suggestions
-(after! company
-  (setq company-selection-wrap-around t)
-  (map! :map company-active-map
-        "<tab>" #'company-complete-selection
-        "C-n" #'company-select-next
-        "C-p" #'company-select-previous))
-
-
+;;  Start up maxinized
+;;(setq initial-frame-alist '((width . 120) (height . 40)))
+(setq initial-frame-alist '((fullscreen . maximized)))
