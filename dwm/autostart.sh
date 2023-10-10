@@ -18,12 +18,12 @@ function run {
 
 sxhkd -c ~/.config/dwm/sxhkd/sxhkdrc &
 run "nm-applet"
-xset dpms 180 &
+#xset dpms 180 &
 #xss-lock  -- slock  -n &
-run "mate-power-manager"
+#run "xfce4-power-manager"
 #run "blueberry-tray" 
 run "blueman-applet"
-run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
+#run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
 #run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" 
 #picom -b  --config ~/.config/dwm/picom.conf
 picom -b
@@ -32,9 +32,11 @@ run "mate-volume-control-status-icon"
 #run "slstatus"
 ~/.config/dwm/scripts/bar.sh &
 feh --bg-fill ~/.config/dwm/bg.png &
-ibus-daemon -rxR
+#ibus-daemon -rxR
 #fcitx5 -d
-run "/usr/bin/mate-settings-daemon"
+#run "mate-mouse-properties"
+#run "/usr/bin/mate-settings-daemon"
+run ~/.config/polybar/launch.sh &
 
 # enable tapping and natural scrolling of touchpad
 #xinput set-prop 'SYNA7DAB:01 06CB:CD40 Touchpad' '339' 1 &

@@ -1,8 +1,8 @@
 
 
 #archlinux-logout
-#super + x
-#    archlinux-logout
+super + x
+    xfce4-session-logout
 
 # terminal
 super + Return

@@ -82,9 +82,30 @@
 
 ;;  Set the font
 ;; (setq doom-font (font-spec :family "Hack" :size 20))
-(setq doom-font (font-spec :family "monospace" :size 20))
+(setq doom-font (font-spec :family "monospace" :size 22))
 (setq doom-unicode-font (font-spec :family "Noto Sans CJK SC" :size 20))
 
 ;;  Start up maxinized
 ;;(setq initial-frame-alist '((width . 120) (height . 40)))
 (setq initial-frame-alist '((fullscreen . maximized)))
+
+
+;; Move in the wrap line
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+(define-key evil-normal-state-map (kbd "$") 'evil-end-of-visual-line)
+(define-key evil-normal-state-map (kbd "0") 'evil-beginning-of-visual-line)
+
+(define-key evil-normal-state-map (kbd "H") 'previous-buffer)
+(define-key evil-normal-state-map (kbd "L") 'next-buffer)
+
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-bottom)
+
+;; org mode latex preview option
+(setq org-latex-create-formula-image-program 'dvisvgm)
+;(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+;(plist-put org-format-latex-options :scale 1.5) ; larger previews
+
