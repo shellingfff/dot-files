@@ -185,14 +185,6 @@ enable the syncthing service:
 systemctl --user enable syncthing.service
 ```
 
-### Dotfiles
-
-clone this repo:
-
-``` {.bash org-language="sh"}
-git clone git@github.com:diskui/Dotfiles.git
-```
-
 ### IPTables
 disble the network connection whose group is no-net
 ```

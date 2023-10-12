@@ -23,12 +23,14 @@ run "nm-applet"
 run "xfce4-power-manager"
 #run "blueberry-tray" 
 run "blueman-applet"
-run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
+#run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
+run "/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd"
+
 #run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" 
 #picom -b  --config ~/.config/dwm/picom.conf
 picom -b
 run "numlockx on" 
-run "mate-volume-control-status-icon"
+#run "mate-volume-control-status-icon"
 #run "slstatus"
 ~/.config/dwm/scripts/bar.sh &
 feh --bg-fill ~/.config/dwm/bg.png &
@@ -37,5 +39,5 @@ ibus-daemon -rxR
 #run "mate-mouse-properties"
 #run "/usr/bin/mate-settings-daemon"
 #run ~/.config/polybar/launch.sh &
-run xfce4-mouse-settings
+#run xfce4-mouse-settings
 
