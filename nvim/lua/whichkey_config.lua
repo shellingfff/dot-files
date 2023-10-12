@@ -21,7 +21,10 @@ local mappings = {
   ["fb"] = {"<cmd>lua require(\'telescope.builtin\').current_buffer_fuzzy_find()<cr>","Find Buffer"},
 
   -- open markdown preview
-  ["md"] = {":MarkdownPreview<cr>","MarkdownPreview"} 
+  ["md"] = {":MarkdownPreview<cr>","MarkdownPreview"},
+
+  -- smp tools
+  ["sm"] = {":Smp<cr>","Smp tools"} 
 }
 
 local setup = {

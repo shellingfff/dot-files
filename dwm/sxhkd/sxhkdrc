@@ -1,9 +1,5 @@
 
 
-#archlinux-logout
-super + x
-    xfce4-session-logout
-
 # terminal
 super + Return
     kitty
@@ -15,11 +11,11 @@ super + o
 super + KP_Enter
     alacritty
 
-#dmenu
-#super + d
-#    ~/.config/dwm/launcher/launcher.sh
+# rofi
+super + shift + d
+    ~/.config/bspwm/launcher/launcher.sh
 
-#rofi
+# dmenu
 super + d
     dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 

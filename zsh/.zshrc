@@ -36,6 +36,7 @@ setopt appendhistory
 alias lg="lazygit"
 alias listen="darkhttpd ~/.config/clash/yacd-gh-pages"
 alias jo="joshuto"
+alias q="exit"
 #alias emacs="env GTK_IM_MODULE=xim emacs"
 
 # the fuck

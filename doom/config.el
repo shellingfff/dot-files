@@ -109,3 +109,4 @@
 ;(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 ;(plist-put org-format-latex-options :scale 1.5) ; larger previews
 
+

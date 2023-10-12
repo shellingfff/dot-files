@@ -44,7 +44,14 @@ require('lazy').setup({
     end,
     ft = { "markdown" },
   },
-
+  {
+    'cnshsliu/smp.nvim',
+    build="cd server && npm install",   -- yes, we should have node & npm installed.
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+  },
   {
     "jghauser/follow-md-links.nvim",
     ft = { "markdown"},
