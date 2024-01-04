@@ -50,3 +50,11 @@
 ;(unpin! t)
 
 
+;; markdown preview
+;;(package! grip-mode)
+;;(package! markdown-preview-eww)
+;;(package! markdown-soma)
+;;(package! vmd-mode)
+
+(package! texfrag)
+(package! cdlatex)

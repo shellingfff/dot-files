@@ -1,0 +1,184 @@
+#+TITLE: System Config
+
+things i will do after the installation of the (arch-based) =linux= system:
+
+* Desktop
+** gnome:
+#+begin_src shell
+sudo pacman -S --needed gnome 
+
+sudo systemctl enable gdm
+#+end_src
+
+** bspwm(or dwm)
+#+begin_src shell
+sudo pacman -S --needed bspwm polybar sxhkd xorg-xsetroot variety network-manager-applet \
+xfce4-power-manager flameshot blueberry picom xfce4-notifyd volumeicon rofi xss-lock xorg-xbacklight xorg-xinput
+#+end_src
+
+configure the proxy:
+#+begin_src shell
+# root
+# add a blank line
+echo >> /etc/environment
+echo "http_proxy=\"http://127.0.0.1:7890\"
+https_proxy=\"http://127.0.0.1:7890\"
+socks5_proxy=\"http://127.0.0.1:7890\"" >> /etc/environment
+#+end_src
+
+** Screenshot
+:PROPERTIES:
+:CUSTOM_ID: screenshot
+:END:
+*** xorg
+
+#+begin_src shell
+sudo pacman -S --needed flameshot
+#+end_src
+
+*** gnome
+
+#+begin_src shell
+sudo pacman -S --needed xdg-desktop-portal-gnome  xdg-desktop-portal flameshot
+#+end_src
+
+=wayland= window manager:
+
+#+begin_src shell
+sudo pacman -S --needed swappy slurp grim 
+#+end_src
+
+* Packages
+add =archlinuxcn= source:
+
+#+begin_src shell
+# root
+echo -e "[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/\$arch" >> /etc/pacman.conf
+pacman -Sy
+pacman -S archlinuxcn-keyring
+pacman -S --needed yay-bin 
+#+end_src
+
+* Git
+configure git and generate an ssh key:
+
+#+begin_src shell
+git config --global user.name "linux"
+git config --global user.email kaxiford@gmail.com
+git config --global core.editor "nvim"
+git config --global init.defaultBranch main
+ssh-keygen -t ed25519 -C "kaxiford@gmail.com"
+
+# add to github
+#+end_src
+
+* Shell
+:PROPERTIES:
+:CUSTOM_ID: shell
+:END:
+*** zsh
+
+#+begin_src shellell
+# install zsh
+sudo pacman -S zsh
+#+end_src
+
+*** fish
+
+#+begin_src shell
+sudo pacman -S fish
+#+end_src
+
+* clipboard tool
+** xorg
+
+#+begin_src shellell
+sudo pacman -S --needed xsel
+#+end_src
+
+** wayland
+
+#+begin_src shell
+sudo pacman -S --needed clipman
+#+end_src
+
+* Input Method
+** ibus
+
+#+begin_src shell
+# install
+sudo pacman -S ibus --needed
+
+ # set the environment varibles
+ # root
+ echo -e "GTK_IM_MODULE=ibus
+ XMODIFIERS=@im=ibus
+ QT_IM_MODULE=ibus" >> /etc/environment
+
+ ibus-setup
+ # add the input method and do the same in gnome settings
+ # set the ctrl+space keyshortcut for switch input method
+#+end_src
+
+** fcitx5:
+
+#+begin_src shell
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-nord
+yay -S fcitx5-input-support
+
+# set audo-start
+#+end_src
+
+** fcitx:
+
+#+begin_src shell
+sudo pacman -S fcitx-im
+yay -S  fcitx-configtool
+
+# root
+# set the environment varibles
+echo -e "GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx" >> /etc/envrionment
+#+end_src
+
+* Wechat
+to use the deepin-wine version of wechat:
+
+#+begin_src shell
+yay -S deepin-wine-wechat --mflags --skipinteg
+#+end_src
+
+to set the dpi of the deepin wine:
+
+#+begin_src sh
+/opt/apps/com.qq.weixin.deepin/files/run.sh winecfg
+#+end_src
+
+or
+
+#+begin_src sh
+env WINEPREFIX=/home/$USER/.deepinwine/Deepin-WeChat deepin-wine6-stable winecfg
+#+end_src
+
+* Syncthing
+enable the syncthing service:
+
+#+begin_src shell
+systemctl --user enable syncthing.service
+#+end_src
+
+* IPTables
+disble the network connection whose group is no-net
+
+#+begin_example
+iptables -I OUTPUT 1 -m owner --gid-owner no-net -j DROP
+#+end_example
+
+* Debian:
+to install =vmware=, [[https://github.com/mkubecek/vmware-host-modules][this repository]] is needed
+
+use [[https://github.com/huan/docker-wechat][wechat]] in docker
+
+[[https://github.com/BannedPatriot/ttf-wps-fonts][this repo]] is needed to use =wps-office=

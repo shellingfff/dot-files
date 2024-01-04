@@ -47,7 +47,8 @@ eval $(thefuck --alias)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Java 
-export JAVA_HOME="/usr/local/java/jdk1.8.0_202"
+#export JAVA_HOME="/usr/local/java/jdk1.8.0_202"
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk/"
 export PATH=$PATH:$JAVA_HOME/bin
 
 # spark

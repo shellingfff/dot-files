@@ -23,10 +23,10 @@ run "nm-applet"
 run "xfce4-power-manager"
 #run "blueberry-tray" 
 run "blueman-applet"
-#run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
-run "/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd"
+run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
+#run "/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd"
 
-#run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" 
+run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" 
 #picom -b  --config ~/.config/dwm/picom.conf
 picom -b
 run "numlockx on" 

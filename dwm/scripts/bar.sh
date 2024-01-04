@@ -40,6 +40,7 @@ get_battery()
 }
 
 while true; do
-    xsetroot -name  " ;| $(get_time) | $(get_date) | $(get_day) | BRI $(get_backlight) | VOL $(get_volume) | MEM $(get_memory) | BAT $(get_battery) |"
+    xsetroot -name  ";| $(get_time) | $(get_date) | $(get_day) | BRI $(get_backlight) | VOL $(get_volume) | MEM $(get_memory) | BAT $(get_battery) |"
+    #xsetroot -name  "top text; bottom text"
     sleep 1
 done

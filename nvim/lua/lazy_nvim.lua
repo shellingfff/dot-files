@@ -44,6 +44,15 @@ require('lazy').setup({
     end,
     ft = { "markdown" },
   },
+  { -- outline
+    'stevearc/aerial.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+  },
   {
     'cnshsliu/smp.nvim',
     build="cd server && npm install",   -- yes, we should have node & npm installed.

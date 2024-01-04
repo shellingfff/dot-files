@@ -6,7 +6,7 @@
  '(ispell-dictionary nil)
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(org-format-latex-options
-   '(:foreground default :background default :scale 1.7 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+   '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
      ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
    '(impatient-mode markdown-soma grip-mode markdown-preview-eww)))

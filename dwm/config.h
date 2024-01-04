@@ -8,7 +8,7 @@ static const char autostartsh[]          = "autostart.sh";
 static const char dwmdir[]               = "dwm";
 static const char localshare[]           = ".config";
 static const int showbar                 = 1;   /* 0 means no bar */
-static const int topbar                  = 1;   /* 0 means bottom bar */
+static const int topbar                  = 0;   /* 0 means bottom bar */
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -24,8 +24,8 @@ static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const char statussep              = ';'; /* separator between status bars */
-static const char *fonts[]               = { "monospace:size=10" };
-static const char dmenufont[]            = "monospace:size=10";
+static const char *fonts[]               = { "monospace:size=13" };
+static const char dmenufont[]            = "monospace:size=13";
 
 static char c000000[]                    = "#000000"; // placeholder value
 

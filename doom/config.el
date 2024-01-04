@@ -82,11 +82,11 @@
 
 ;;  Set the font
 ;; (setq doom-font (font-spec :family "Hack" :size 20))
-(setq doom-font (font-spec :family "monospace" :size 22))
-(setq doom-unicode-font (font-spec :family "Noto Sans CJK SC" :size 20))
+(setq doom-font (font-spec :family "monospace" :size 28))
+(setq doom-unicode-font (font-spec :family "Noto Sans CJK SC" :size 26))
 
 ;;  Start up maxinized
-;;(setq initial-frame-alist '((width . 120) (height . 40)))
+;;(setq initial-frame-alist '((width . 60) (height . 20)))
 (setq initial-frame-alist '((fullscreen . maximized)))
 
 
@@ -106,7 +106,24 @@
 
 ;; org mode latex preview option
 (setq org-latex-create-formula-image-program 'dvisvgm)
-;(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
-;(plist-put org-format-latex-options :scale 1.5) ; larger previews
+
+;; markdown latex preview
+(eval-after-load "texfrag"
+  (lambda ()
+    (add-to-list 'texfrag-setup-alist '(markdown-mode))))
+(setq texfrag-scale 1.0)
+(add-hook 'markdown-mode-hook #'texfrag-mode)
+
+;; padding
+;;(setq-default left-margin-width 14 right-margin-width 14)
+
+;; Chinese inline format issue
+;;(setq org-emphasis-regexp-components
+;;        (list (concat " \t('\"{"            "\cc")
+;;                (concat "- \t.,:!?;'\")}\\["  "\cc")
+;;                " \t\r\n,\"'"
+;;                "."
+;;                1))
+;;
 
 

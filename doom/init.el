@@ -14,6 +14,7 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese
@@ -21,7 +22,7 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       company           ; the ultimate code completion backend
+       ;;company             ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -193,3 +194,10 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+ (add-hook 'mardkown-mode-hook
+   (lambda ()
+     (local-set-key (kbd "C-c C-x C-l") 'org-toggle-latex-fragment)
+     (local-set-key (kbd "C-c C-x C-u") 'markdown-toggle-url-hiding)
+     ))
+
