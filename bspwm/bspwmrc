@@ -68,3 +68,4 @@ bspc rule -a Wine state=floating
 
 # Tile zathura
 bspc rule -a Zathura state=tiled
+bspc rule -a Emacs state=tiled

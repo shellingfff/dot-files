@@ -34,10 +34,15 @@ setopt appendhistory
 
 #aliases
 alias lg="lazygit"
-alias listen="darkhttpd ~/.config/clash/yacd-gh-pages"
 alias jo="joshuto"
 alias q="exit"
 #alias emacs="env GTK_IM_MODULE=xim emacs"
+alias pc="proxychains -q"
+alias mihomo="cat ~/Mine/Core/Scripts/start-clash | sh"
+alias yacd="cat ~/Mine/Core/Scripts/start-yacd | sh"
+#alias ls="lsd -lh"
+alias android="~/Mine/Core/Scripts/waydroid.sh"
+alias music='mpv -no-audio-display -loop-file "$(find ~/Mine/Extra/Music/ -type f | fzf)"'
 
 # the fuck
 eval $(thefuck --alias)
@@ -84,3 +89,11 @@ unset __conda_setup
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# ibus
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+# nextcloud
+

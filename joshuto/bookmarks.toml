@@ -3,4 +3,8 @@ bookmark = [
   { key = "e", path = "/etc" },
 
   { key = "h", path = "~/" },
+
+  {key = "m", path = "~/Mine"},
+
+  {key = "c", path = "~/.config"},
 ]

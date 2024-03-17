@@ -87,7 +87,7 @@
 
 ;;  Start up maxinized
 ;;(setq initial-frame-alist '((width . 60) (height . 20)))
-(setq initial-frame-alist '((fullscreen . maximized)))
+;;(setq initial-frame-alist '((fullscreen . maximized)))
 
 
 ;; Move in the wrap line
@@ -127,3 +127,8 @@
 ;;
 
 
+(setq org-export-with-toc nil)
+
+;; set a browser for markdown preview
+(setq grip-url-browser "firefox")
+(setq browse-url-generic-program "firefox")

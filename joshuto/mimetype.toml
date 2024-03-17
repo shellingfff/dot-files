@@ -2,6 +2,7 @@
 audio_default = [
   { command = "mpv", args = [
     "--no-audio-display",
+    "--loop-file",
   ] },
   { command = "mediainfo", confirm_exit = true },
 ]

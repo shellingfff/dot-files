@@ -24,13 +24,15 @@ run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 xsetroot -cursor_name left_ptr &
 
 run nm-applet &
-run xfce4-power-manager &
-#numlockx on &
+# run xfce4-power-manager &
+powerkit &
+numlockx on &
 blueberry-tray &
-picom --config $HOME/.config/bspwm/picom.conf &
+#picom --config $HOME/.config/bspwm/picom.conf &
+picom -b
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 run volumeicon &
-run fcitx &
+fcitx5 -d
 feh --bg-fill $HOME/.config/bspwm/bg.png
 #Enable natural scrolling for touchpad
 #xinput set-prop 13 "libinput Natural Scrolling Enabled" 1

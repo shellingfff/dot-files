@@ -345,6 +345,7 @@ static void updatestatus(void);
 static void updatetitle(Client *c);
 static void updatewmhints(Client *c);
 static void view(const Arg *arg);
+static void focustag(const Arg *arg);
 static Client *wintoclient(Window w);
 static Monitor *wintomon(Window w);
 static int xerror(Display *dpy, XErrorEvent *ee);
@@ -359,8 +360,6 @@ static void zoom(const Arg *arg);
 /* variables */
 static const char broken[] = "broken";
 static char stext[512];
-static char rawstext[512];
-static char estext[512];
 
 static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
@@ -2514,19 +2513,8 @@ void
 updatestatus(void)
 {
 	Monitor *m;
-	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext))) {
+	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
 		strcpy(stext, "dwm-"VERSION);
-		estext[0] = '\0';
-	} else {
-		char *e = strchr(rawstext, statussep);
-		if (e) {
-			*e = '\0'; e++;
-			strncpy(estext, e, sizeof(estext) - 1);
-		} else {
-			estext[0] = '\0';
-		}
-		strncpy(stext, rawstext, sizeof(stext) - 1);
-	}
 	for (m = mons; m; m = m->next)
 		drawbar(m);
 }
@@ -2580,6 +2568,28 @@ view(const Arg *arg)
 	pertagview(arg);
 	arrange(selmon);
 	focus(NULL);
+}
+
+void
+focustag(const Arg *arg)
+{
+    unsigned int curtag = selmon->tagset[selmon->seltags];
+    Arg newarg;
+    if (arg->i == +1) /* next tag */
+    {
+        if (!((curtag << 1) & TAGMASK)) /* positive overflow, focus the first tag */
+            newarg.ui = 1 << 0;
+        else
+            newarg.ui = curtag << 1;
+    }
+    else
+    {
+        if (!((curtag >> 1) & TAGMASK)) /* negative overflow, focus the last tag */
+            newarg .ui = 1 << (NUMTAGS - 1);
+        else
+            newarg.ui = curtag >> 1;
+    }
+    view(&newarg);
 }
 
 Client *
@@ -2693,4 +2703,3 @@ main(int argc, char *argv[])
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
 }
-

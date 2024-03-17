@@ -58,3 +58,6 @@
 
 (package! texfrag)
 (package! cdlatex)
+(package! grip-mode)
+(package! vmd-mode)
+(package! markdown-soma)

@@ -94,10 +94,10 @@ module-margin-left = 3
 module-margin-right = 3
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=10;0"
+font-0 = "Noto Sans:size=13;0"
 font-1 = "FontAwesome:size=13;0"
-font-2 = "Noto Sans:size=10;0"
-font-3 = "Noto Sans Mono:size=10;0"
+font-2 = "Noto Sans:size=13;0"
+font-3 = "Noto Sans Mono:size=13;0"
 
 modules-left = 
 modules-center = date
@@ -161,7 +161,7 @@ font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = bspwm xwindow
 modules-center = date
-modules-right = xbacklight pavolume memory2 cpu2 battery
+modules-right = backlight pavolume memory2 cpu2 battery
 
 tray-detached = false
 tray-offset-x = 0
@@ -258,16 +258,29 @@ enable-scroll = true
 reverse-scroll = true
 pin-workspaces = true
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
+#ws-icon-0 = 1;
+#ws-icon-1 = 2;
+#ws-icon-2 = 3;
+#ws-icon-3 = 4;
+#ws-icon-4 = 5;
+#ws-icon-5 = 6;
+#ws-icon-6 = 7;
+#ws-icon-7 = 8;
+#ws-icon-8 = 9;
+#ws-icon-9 = 10;
+#ws-icon-default = " "
+
+
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;0
 ws-icon-default = " "
 
 
@@ -356,7 +369,7 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix-foreground = #7D49B6
 format-prefix-underline = #7D49B6
-format-underline = #7D49B6
+format-underline = #BE6CFC
 ################################################################################
 
 [module/backlight]
@@ -393,6 +406,7 @@ bar-width = 10
 bar-indicator = |
 bar-fill = ─
 bar-empty = ─
+format-underline = #BE6CFC
 
 ################################################################################
 

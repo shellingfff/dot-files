@@ -20,7 +20,8 @@ sxhkd -c ~/.config/dwm/sxhkd/sxhkdrc &
 run "nm-applet"
 #xset dpms 180 &
 #xss-lock  -- slock  -n &
-run "xfce4-power-manager"
+#run "xfce4-power-manager"
+powerkit &
 #run "blueberry-tray" 
 run "blueman-applet"
 run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
@@ -34,8 +35,9 @@ run "numlockx on"
 #run "slstatus"
 ~/.config/dwm/scripts/bar.sh &
 feh --bg-fill ~/.config/dwm/bg.png &
-ibus-daemon -rxR
-#fcitx5 -d
+#ibus-daemon -rxRd
+fcitx5 -d
+#
 #run "mate-mouse-properties"
 #run "/usr/bin/mate-settings-daemon"
 #run ~/.config/polybar/launch.sh &

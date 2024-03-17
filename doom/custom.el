@@ -9,7 +9,7 @@
    '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
      ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(impatient-mode markdown-soma grip-mode markdown-preview-eww)))
+   '(org-preview-html impatient-mode markdown-soma grip-mode markdown-preview-eww)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
