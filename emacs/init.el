@@ -39,8 +39,8 @@
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-banner-logo-title "FUCK")
-  (setq dashboard-startup-banner nil) ;; use standard emacs logo as banner
-  ;;(setq dashboard-startup-banner "~/.config/emacs/images/dtmacs-logo.png")  ;; use custom image as banner
+;  (setq dashboard-startup-banner nil) ;; use standard emacs logo as banner
+  (setq dashboard-startup-banner "~/.config/emacs/images/emacs-dash.png")  ;; use custom image as banner
   (setq dashboard-center-content nil) ;; set to 't' for centered content
   (setq dashboard-items '((recents . 5)
                           (agenda . 5 )
@@ -471,6 +471,12 @@
 (eval-after-load 'org-indent '(diminish 'org-indent-mode))
 
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(hl-indent-scope-even-face ((t (:background "#51555d"))))
+ '(hl-indent-scope-odd-face ((t (:background "#3c4048"))))
  '(org-level-1 ((t (:inherit outline-1 :height 1.7))))
  '(org-level-2 ((t (:inherit outline-2 :height 1.6))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.5))))
@@ -641,22 +647,26 @@
   :hook ((c-mode c++-mode cmake-mode python-mode emacs-lisp-mode) . hl-indent-scope-mode))
 
 
-(provide 'init)
-;;; init.el ends here
 
 ;; hide org markers
 (setq org-hide-emphasis-markers t)
 
 ;; set org heading size
-(custom-set-faces
-  '(org-level-1 ((t (:inherit outline-1 :height 1.0 ))))
-  '(org-level-2 ((t (:inherit outline-2 :height 1.0 ))))
-  '(org-level-3 ((t (:inherit outline-3 :height 1.0 ))))
-  '(org-level-4 ((t (:inherit outline-4 :height 1.0 ))))
-  '(org-level-5 ((t (:inherit outline-5 :height 1.0 ))))
-)
+(set-face-attribute 'org-todo nil :height 1.0)
+(set-face-attribute 'org-level-1 nil :height 1.0)
+(set-face-attribute 'org-level-2 nil :height 1.0)
+(set-face-attribute 'org-level-3 nil :height 1.0)
+(set-face-attribute 'org-level-4 nil :height 1.0)
+(set-face-attribute 'org-level-5 nil :height 1.0)
+(set-face-attribute 'org-level-6 nil :height 1.0)
+(set-face-attribute 'org-level-7 nil :height 1.0)
+
 
 ;; disable word wrap
 (global-visual-line-mode 1)
 (setq word-wrap-by-category t)
 (setq word-wrap t)
+
+
+(provide 'init)
+;;; init.el ends here
