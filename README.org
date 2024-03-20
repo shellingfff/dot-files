@@ -1,10 +1,12 @@
-#+TITLE: System Config
+#+title: Read Me
+#+OPTIONS: num:nil
+#+OPTIONS: toc:nil
 
 things i will do after the installation of the (arch-based) =linux= system:
 
 * Desktop
 ** gnome:
-#+begin_src shell
+#+begin_src shellell
 sudo pacman -S --needed gnome 
 
 sudo systemctl enable gdm
@@ -16,7 +18,8 @@ sudo pacman -S --needed bspwm polybar sxhkd xorg-xsetroot variety network-manage
 xfce4-power-manager flameshot blueberry picom xfce4-notifyd volumeicon rofi xss-lock xorg-xbacklight xorg-xinput
 #+end_src
 
-configure the proxy:
+* Proxy
+
 #+begin_src shell
 # root
 # add a blank line
@@ -26,29 +29,27 @@ https_proxy=\"http://127.0.0.1:7890\"
 socks5_proxy=\"http://127.0.0.1:7890\"" >> /etc/environment
 #+end_src
 
-** Screenshot
-:PROPERTIES:
-:CUSTOM_ID: screenshot
-:END:
-*** xorg
+* Screenshot
+** xorg
 
 #+begin_src shell
 sudo pacman -S --needed flameshot
 #+end_src
 
-*** gnome
+** gnome
 
 #+begin_src shell
 sudo pacman -S --needed xdg-desktop-portal-gnome  xdg-desktop-portal flameshot
 #+end_src
 
-=wayland= window manager:
+** =wayland= window manager:
 
 #+begin_src shell
 sudo pacman -S --needed swappy slurp grim 
 #+end_src
 
 * Packages
+
 add =archlinuxcn= source:
 
 #+begin_src shell
@@ -60,7 +61,20 @@ pacman -S archlinuxcn-keyring
 pacman -S --needed yay-bin 
 #+end_src
 
+install some packages:
+
+#+begin_src shell
+sudo pacman --needed -S - < pacman-packages.txt
+#+end_src
+
+some =aur= packages:
+
+#+begin_src shell
+cat aur-packages.txt | xargs paru -S --needed
+#+end_src
+
 * Git
+
 configure git and generate an ssh key:
 
 #+begin_src shell
@@ -74,23 +88,22 @@ ssh-keygen -t ed25519 -C "kaxiford@gmail.com"
 #+end_src
 
 * Shell
-:PROPERTIES:
-:CUSTOM_ID: shell
-:END:
-*** zsh
+
+** zsh
 
 #+begin_src shellell
 # install zsh
 sudo pacman -S zsh
 #+end_src
 
-*** fish
+** fish
 
 #+begin_src shell
 sudo pacman -S fish
 #+end_src
 
 * clipboard tool
+
 ** xorg
 
 #+begin_src shellell
@@ -104,21 +117,22 @@ sudo pacman -S --needed clipman
 #+end_src
 
 * Input Method
+
 ** ibus
 
 #+begin_src shell
 # install
 sudo pacman -S ibus --needed
 
- # set the environment varibles
- # root
- echo -e "GTK_IM_MODULE=ibus
- XMODIFIERS=@im=ibus
- QT_IM_MODULE=ibus" >> /etc/environment
+# set the environment varibles
+# root
+echo -e "GTK_IM_MODULE=ibus
+XMODIFIERS=@im=ibus
+QT_IM_MODULE=ibus" >> /etc/environment
 
- ibus-setup
- # add the input method and do the same in gnome settings
- # set the ctrl+space keyshortcut for switch input method
+ibus-setup
+# add the input method and do the same in gnome settings
+# set the ctrl+space keyshortcut for switch input method
 #+end_src
 
 ** fcitx5:
@@ -144,6 +158,7 @@ XMODIFIERS=@im=fcitx" >> /etc/envrionment
 #+end_src
 
 * Wechat
+
 to use the deepin-wine version of wechat:
 
 #+begin_src shell
@@ -163,20 +178,24 @@ env WINEPREFIX=/home/$USER/.deepinwine/Deepin-WeChat deepin-wine6-stable winecfg
 #+end_src
 
 * Syncthing
+
 enable the syncthing service:
 
 #+begin_src shell
 systemctl --user enable syncthing.service
 #+end_src
 
-* IPTables
+* IP Tables
+
 disble the network connection whose group is no-net
 
 #+begin_example
 iptables -I OUTPUT 1 -m owner --gid-owner no-net -j DROP
 #+end_example
 
+
 * Debian:
+
 to install =vmware=, [[https://github.com/mkubecek/vmware-host-modules][this repository]] is needed
 
 use [[https://github.com/huan/docker-wechat][wechat]] in docker

@@ -55,14 +55,6 @@
 
 (use-package diminish)
 
-(use-package dired-open
-  :config
-  (setq dired-open-extensions '(("gif" . "sxiv")
-                                ("jpg" . "sxiv")
-                                ("png" . "sxiv")
-                                ("mkv" . "mpv")
-                                ("mp4" . "mpv"))))
-
 (use-package peep-dired
   :after dired
   :hook (evil-normalize-keymaps . peep-dired-hook)
@@ -93,8 +85,6 @@
   (add-to-list 'evil-collection-mode-list 'help) ;; evilify help mode
   (evil-collection-init))
 
-(use-package evil-tutor)
-
 ;; Using RETURN to follow links in Org/Evil 
 ;; Unmap keys in 'evil-maps if not done, (setq org-return-follows-link t) will not work
 (with-eval-after-load 'evil-maps
@@ -110,8 +100,9 @@
   :diminish
   :init (global-flycheck-mode))
 
-(use-package focus)
+;(use-package focus)
 
+;;; Font
 (set-face-attribute 'default nil
   :font "monospace 20"
   :height 200
@@ -150,11 +141,11 @@
   (general-evil-setup)
 
   ;; move buffer
-  (general-def 'motion
-    "H" 'previous-buffer)
+;;  (general-def 'motion
+;;    "H" 'previous-buffer)
 
-  (general-def 'motion
-    "L" 'next-buffer)
+;; (general-def 'motion
+;;    "L" 'next-buffer)
 
 
   ;; Move in the wrap line
@@ -174,40 +165,30 @@
     :states '(normal insert visual emacs)
     :keymaps 'override
     :prefix "SPC" ;; set leader
-    :global-prefix "M-SPC") ;; access leader in insert mode
+    )
 
   (dt/leader-keys
-    ":" '(counsel-M-x :wk "Counsel M-x")
     "f f" '(find-file :wk "Find file")
     "=" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
     "TAB TAB" '(comment-line :wk "Comment lines")
     "u" '(universal-argument :wk "Universal argument"))
 
   (dt/leader-keys
-    "b" '(:ignore t :wk "Bookmarks/Buffers")
+    "b" '(:ignore t :wk "Buffers")
     "b b" '(switch-to-buffer :wk "Switch to buffer")
     "b c" '(clone-indirect-buffer :wk "Create indirect buffer copy in a split")
     "b C" '(clone-indirect-buffer-other-window :wk "Clone indirect buffer in new window")
-    "b d" '(bookmark-delete :wk "Delete bookmark")
     "b i" '(ibuffer :wk "Ibuffer")
     "b k" '(kill-current-buffer :wk "Kill current buffer")
     "b K" '(kill-some-buffers :wk "Kill multiple buffers")
-    "b l" '(list-bookmarks :wk "List bookmarks")
-    "b m" '(bookmark-set :wk "Set bookmark")
     "b n" '(next-buffer :wk "Next buffer")
     "b p" '(previous-buffer :wk "Previous buffer")
     "b r" '(revert-buffer :wk "Reload buffer")
     "b R" '(rename-buffer :wk "Rename buffer")
     "b s" '(basic-save-buffer :wk "Save buffer")
     "b S" '(save-some-buffers :wk "Save multiple buffers")
-    "b w" '(bookmark-save :wk "Save current bookmarks to bookmark file"))
+    )
 
-  (dt/leader-keys
-    "d" '(:ignore t :wk "Dired")
-    "d d" '(dired :wk "Open dired")
-    "d j" '(dired-jump :wk "Dired jump to current")
-    "d n" '(neotree-dir :wk "Open directory in neotree")
-    "d p" '(peep-dired :wk "Peep-dired"))
 
   (dt/leader-keys
     "e" '(:ignore t :wk "Evaluate")    
@@ -217,7 +198,7 @@
     "e l" '(eval-last-sexp :wk "Evaluate elisp expression before point")
     "e r" '(eval-region :wk "Evaluate elisp in region")
     "e R" '(eww-reload :which-key "Reload current page in EWW")
-    "e w" '(eww :which-key "EWW emacs web wowser"))
+    )
 
   (dt/leader-keys
     "f" '(:ignore t :wk "Files")    
@@ -238,48 +219,34 @@
     "f u" '(sudo-edit-find-file :wk "Sudo find file")
     "f U" '(sudo-edit :wk "Sudo edit file"))
 
-  (dt/leader-keys
-    "g" '(:ignore t :wk "Git")    
-    "g /" '(magit-displatch :wk "Magit dispatch")
-    "g ." '(magit-file-displatch :wk "Magit file dispatch")
-    "g b" '(magit-branch-checkout :wk "Switch branch")
-    "g c" '(:ignore t :wk "Create") 
-    "g c b" '(magit-branch-and-checkout :wk "Create branch and checkout")
-    "g c c" '(magit-commit-create :wk "Create commit")
-    "g c f" '(magit-commit-fixup :wk "Create fixup commit")
-    "g C" '(magit-clone :wk "Clone repo")
-    "g f" '(:ignore t :wk "Find") 
-    "g f c" '(magit-show-commit :wk "Show commit")
-    "g f f" '(magit-find-file :wk "Magit find file")
-    "g f g" '(magit-find-git-config-file :wk "Find gitconfig file")
-    "g F" '(magit-fetch :wk "Git fetch")
-    "g g" '(magit-status :wk "Magit status")
-    "g i" '(magit-init :wk "Initialize git repo")
-    "g l" '(magit-log-buffer-file :wk "Magit buffer log")
-    "g r" '(vc-revert :wk "Git revert file")
-    "g s" '(magit-stage-file :wk "Git stage file")
-    "g t" '(git-timemachine :wk "Git time machine")
-    "g u" '(magit-stage-file :wk "Git unstage file"))
+;;  (dt/leader-keys
+;;    "g" '(:ignore t :wk "Git")    
+;;    "g /" '(magit-displatch :wk "Magit dispatch")
+;;    "g ." '(magit-file-displatch :wk "Magit file dispatch")
+;;    "g b" '(magit-branch-checkout :wk "Switch branch")
+;;    "g c" '(:ignore t :wk "Create") 
+;;    "g c b" '(magit-branch-and-checkout :wk "Create branch and checkout")
+;;    "g c c" '(magit-commit-create :wk "Create commit")
+;;    "g c f" '(magit-commit-fixup :wk "Create fixup commit")
+;;    "g C" '(magit-clone :wk "Clone repo")
+;;    "g f" '(:ignore t :wk "Find") 
+;;    "g f c" '(magit-show-commit :wk "Show commit")
+;;    "g f f" '(magit-find-file :wk "Magit find file")
+;;    "g f g" '(magit-find-git-config-file :wk "Find gitconfig file")
+;;    "g F" '(magit-fetch :wk "Git fetch")
+;;    "g g" '(magit-status :wk "Magit status")
+;;    "g i" '(magit-init :wk "Initialize git repo")
+;;    "g l" '(magit-log-buffer-file :wk "Magit buffer log")
+;;    "g r" '(vc-revert :wk "Git revert file")
+;;    "g s" '(magit-stage-file :wk "Git stage file")
+;;    "g t" '(git-timemachine :wk "Git time machine")
+;;    "g u" '(magit-stage-file :wk "Git unstage file"))
 
  (dt/leader-keys
     "h" '(:ignore t :wk "Help")
-    "h a" '(counsel-apropos :wk "Apropos")
     "h b" '(describe-bindings :wk "Describe bindings")
-    "h c" '(describe-char :wk "Describe character under cursor")
-    "h d" '(:ignore t :wk "Emacs documentation")
-    "h d a" '(about-emacs :wk "About Emacs")
-    "h d d" '(view-emacs-debugging :wk "View Emacs debugging")
-    "h d f" '(view-emacs-FAQ :wk "View Emacs FAQ")
-    "h d m" '(info-emacs-manual :wk "The Emacs manual")
-    "h d n" '(view-emacs-news :wk "View Emacs news")
-    "h d o" '(describe-distribution :wk "How to obtain Emacs")
-    "h d p" '(view-emacs-problems :wk "View Emacs problems")
-    "h d t" '(view-emacs-todo :wk "View Emacs todo")
-    "h d w" '(describe-no-warranty :wk "Describe no warranty")
-    "h e" '(view-echo-area-messages :wk "View echo area messages")
     "h f" '(describe-function :wk "Describe function")
     "h F" '(describe-face :wk "Describe face")
-    "h g" '(describe-gnu-project :wk "Describe GNU Project")
     "h i" '(info :wk "Info")
     "h I" '(describe-input-method :wk "Describe input method")
     "h k" '(describe-key :wk "Describe key")
@@ -291,10 +258,9 @@
                 (load-file "~/.config/emacs/init.el")
                 (ignore (elpaca-process-queues)))
               :wk "Reload emacs config")
-    "h t" '(load-theme :wk "Load theme")
     "h v" '(describe-variable :wk "Describe variable")
     "h w" '(where-is :wk "Prints keybinding for command if set")
-    "h x" '(describe-command :wk "Display full documentation for command"))
+)
 
   (dt/leader-keys
     "m" '(:ignore t :wk "Org")
@@ -323,7 +289,6 @@
   (dt/leader-keys
     "o" '(:ignore t :wk "Open")
     "o d" '(dashboard-open :wk "Dashboard")
-    "o e" '(elfeed :wk "Elfeed RSS")
     "o f" '(make-frame :wk "Open buffer in new frame")
     "o F" '(select-frame-by-name :wk "Select frame by name"))
 
@@ -337,7 +302,7 @@
     "s d" '(dictionary-search :wk "Search dictionary")
     "s m" '(man :wk "Man pages")
     "s t" '(tldr :wk "Lookup TLDR docs for a command")
-    "s w" '(woman :wk "Similar to man but doesn't require man"))
+)
 
   (dt/leader-keys
     "t" '(:ignore t :wk "Toggle")
@@ -353,7 +318,7 @@
     "w" '(:ignore t :wk "Windows")
     ;; Window splits
     "w c" '(evil-window-delete :wk "Close window")
-    "w n" '(evil-window-new :wk "New window")
+    "w w" '(evil-window-new :wk "New window")
     "w s" '(evil-window-split :wk "Horizontal split window")
     "w v" '(evil-window-vsplit :wk "Vertical split window")
     ;; Window motions
@@ -361,23 +326,13 @@
     "w j" '(evil-window-down :wk "Window down")
     "w k" '(evil-window-up :wk "Window up")
     "w l" '(evil-window-right :wk "Window right")
-    "w w" '(evil-window-next :wk "Goto next window")
+    "w n" '(evil-window-next :wk "Goto next window")
     ;; Move Windows
-    "w H" '(buf-move-left :wk "Buffer move left")
-    "w J" '(buf-move-down :wk "Buffer move down")
-    "w K" '(buf-move-up :wk "Buffer move up")
-    "w L" '(buf-move-right :wk "Buffer move right"))
+    )
 )
 
-(use-package git-timemachine
-  :after git-timemachine
-  :hook (evil-normalize-keymaps . git-timemachine-hook)
-  :config
-    ;(evil-define-key 'normal git-timemachine-mode-map (kbd "C-j") 'git-timemachine-show-previous-revision)
-    ;(evil-define-key 'normal git-timemachine-mode-map (kbd "C-k") 'git-timemachine-show-next-revision)
-)
 
-(use-package magit)
+;(use-package magit)
 
 (use-package hl-todo
   :hook ((org-mode . hl-todo-mode)
@@ -428,9 +383,7 @@
   (ivy-set-display-transformer 'ivy-switch-buffer
                                'ivy-rich-switch-buffer-transformer))
 
-(use-package haskell-mode)
 (use-package lua-mode)
-(use-package php-mode)
 
 (global-set-key [escape] 'keyboard-escape-quit)
 
@@ -489,17 +442,6 @@
 
 (require 'org-tempo)
 
-(use-package perspective
-  :custom
-  ;; NOTE! I have also set 'SCP =' to open the perspective menu.
-  ;; I'm only setting the additional binding because setting it
-  ;; helps suppress an annoying warning message.
-  (persp-mode-prefix-key (kbd "C-c M-p"))
-  :init 
-  (persp-mode)
-  :config
-  ;; Sets a file to write to when we save states
-  (setq persp-state-default-file "~/.config/emacs/sessions"))
 
 ;; This will group buffers by persp-name in ibuffer.
 (add-hook 'ibuffer-hook
@@ -539,8 +481,6 @@
 (scroll-bar-mode -1)         ;; Disable the scroll bar
 (tool-bar-mode -1)           ;; Disable the tool bar
 (setq org-edit-src-content-indentation 0) ;; Set src block automatic indent to 0 instead of 2.
-
-
 
 (use-package sudo-edit)
 
