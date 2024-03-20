@@ -155,3 +155,7 @@ mihomo
 syncthing
 totem
 gnome-initial-setup-done
+cef_user_data/WidevineCdm
+emacs/eln-cache/29.2-623ad7f7
+systemd/user/default.target.wants
+GNOME-xdg-terminals.list
