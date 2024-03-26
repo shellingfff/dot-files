@@ -107,26 +107,11 @@
   :font "monospace 20"
   :height 200
   :weight 'medium)
-(set-face-attribute 'variable-pitch nil
-  :font "monospace 20"
-  :height 200
-  :weight 'medium)
-(set-face-attribute 'fixed-pitch nil
-  :font "monospace 20"
-  :height 200
-  :weight 'medium)
-;; Makes commented text and keywords italics.
-;; This is working in emacsclient but not emacs.
-;; Your font must have an italic face available.
-(set-face-attribute 'font-lock-comment-face nil
-  :slant 'italic)
-(set-face-attribute 'font-lock-keyword-face nil
-  :slant 'italic)
-
-;; This sets the default font on all graphical frames created after restarting Emacs.
-;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
-;; are not right unless I also add this method of setting the default font.
-(add-to-list 'default-frame-alist '(font . "monospace 18"))
+;; Setting Chinese Font
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+(set-fontset-font (frame-parameter nil 'font)
+		    charset
+		    (font-spec :family "Noto Sans CJK SC" :size 23)))
 
 ;; Uncomment the following line if line spacing needs adjusting.
 (setq-default line-spacing 0.12)
@@ -165,9 +150,11 @@
     :states '(normal insert visual emacs)
     :keymaps 'override
     :prefix "SPC" ;; set leader
+    :global-prefix "M-SPC" ;; set leader
     )
 
   (dt/leader-keys
+    ":" '(counsel-M-x :wk "Counsel M-x")
     "f f" '(find-file :wk "Find file")
     "=" '(perspective-map :wk "Perspective") ;; Lists all the perspective keybindings
     "TAB TAB" '(comment-line :wk "Comment lines")

@@ -1,3 +1,11 @@
+
+import = [
+  # uncomment the flavour you want below:
+  #"~/.config/alacritty/catppuccin-latte.toml"
+  "~/.config/alacritty/catppuccin-frappe.toml"
+  # "~/.config/alacritty/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/catppuccin-mocha.toml"
+]
 # $HOME/.config/alacritty/alacritty.toml
 # by Rito Ghosh 2023-10-06
 
@@ -20,7 +28,7 @@
 
 [window]
 
-opacity = 0.9
+opacity = 1.0
 
 padding.x = 10
 padding.y = 10
@@ -35,8 +43,9 @@ bold.family = "Sarasa Mono SC"
 italic.family = "Sarasa Mono SC"
 bold_italic.family = "Sarasa Mono SC"
 
-size = 13.0
+size = 20.0
 
 # Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
 # Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 
 # small box when a HEX is detected by the editor.
+

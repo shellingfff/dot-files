@@ -43,6 +43,8 @@ alias pc="proxychains4 -q"
 #alias ls="lsd -lh"
 alias android="~/Mine/Core/Scripts/waydroid.sh"
 alias music='mpv -no-audio-display -loop-file "$(find ~/Mine/Extra/Music/ -type f | fzf)"'
+alias nf='nvim $(fzf)'
+alias wechat="cat ~/Mine/Core/Scripts/dochat.sh | DOCHAT_SKIP_PULL=true zsh"
 
 # the fuck
 eval $(thefuck --alias)

@@ -161,3 +161,10 @@ cef_user_data/WidevineCdm
 emacs/eln-cache/29.2-623ad7f7
 systemd/user/default.target.wants
 GNOME-xdg-terminals.list
+bluestone
+emacs/session.102886648fe127164171116438759786000000020440075
+glib-2.0/settings
+imsettings
+marktext
+nautilus
+sealert.conf

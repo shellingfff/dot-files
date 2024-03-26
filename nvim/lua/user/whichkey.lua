@@ -6,7 +6,7 @@ function M.config()
   local mappings = {
     q = { "<cmd>confirm q<CR>", "Quit" },
     h = { "<cmd>nohlsearch<CR>", "NOHL" },
-    [";"] = { "<cmd>tabnew | terminal<CR>", "Term" },
+--    [";"] = { "<cmd>tabnew | terminal<CR>", "Term" },
     v = { "<cmd>vsplit<CR>", "Split" },
     --b = { name = "Buffers" },
     d = { name = "Debug" },
@@ -24,7 +24,8 @@ function M.config()
     --   l = { "<cmd>+tabmove<cr>", "Move Right" },
     -- },
     T = { name = "Treesitter" },
-    m = {name = "Markdown"}
+    m = {name = "Markdown"},
+    w = {name = "Window"},
   }
 
   local which_key = require "which-key"
