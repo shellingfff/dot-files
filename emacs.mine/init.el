@@ -111,7 +111,7 @@
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
 (set-fontset-font (frame-parameter nil 'font)
 		    charset
-		    (font-spec :family "Noto Sans CJK SC" :size 23)))
+		    (font-spec :family "Noto Sans CJK SC" :size 25)))
 
 ;; Uncomment the following line if line spacing needs adjusting.
 (setq-default line-spacing 0.12)

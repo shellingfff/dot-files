@@ -96,9 +96,7 @@
 (define-key evil-normal-state-map (kbd "$") 'evil-end-of-visual-line)
 (define-key evil-normal-state-map (kbd "0") 'evil-beginning-of-visual-line)
 
-(define-key evil-normal-state-map (kbd "H") 'previous-buffer)
-(define-key evil-normal-state-map (kbd "L") 'next-buffer)
-
+;; window move
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-up)
@@ -108,27 +106,19 @@
 (setq org-latex-create-formula-image-program 'dvisvgm)
 
 ;; markdown latex preview
-(eval-after-load "texfrag"
-  (lambda ()
-    (add-to-list 'texfrag-setup-alist '(markdown-mode))))
-(setq texfrag-scale 1.0)
-(add-hook 'markdown-mode-hook #'texfrag-mode)
+;(eval-after-load "texfrag"
+;  (lambda ()
+;    (add-to-list 'texfrag-setup-alist '(markdown-mode))))
+;(setq texfrag-scale 1.0)
+;(add-hook 'markdown-mode-hook #'texfrag-mode)
 
 ;; padding
 ;;(setq-default left-margin-width 14 right-margin-width 14)
 
-;; Chinese inline format issue
-;;(setq org-emphasis-regexp-components
-;;        (list (concat " \t('\"{"            "\cc")
-;;                (concat "- \t.,:!?;'\")}\\["  "\cc")
-;;                " \t\r\n,\"'"
-;;                "."
-;;                1))
-;;
 
-
+;; disable org mode export toc
 (setq org-export-with-toc nil)
 
-;; set a browser for markdown preview
+;; set browser for markdown preview
 (setq grip-url-browser "firefox")
 (setq browse-url-generic-program "firefox")
