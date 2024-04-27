@@ -99,3 +99,5 @@ export QT_IM_MODULE=ibus
 
 # nextcloud
 
+# for ssh top
+export TERM=linux

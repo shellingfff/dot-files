@@ -51,13 +51,11 @@
 
 
 ;; markdown preview
-;;(package! grip-mode)
-;;(package! markdown-preview-eww)
-;;(package! markdown-soma)
-;;(package! vmd-mode)
+;(package! texfrag)
+;(package! cdlatex)
+;(package! grip-mode)
+;(package! vmd-mode)
+;(package! markdown-soma)
+(package! org-bullets)
 
-(package! texfrag)
-(package! cdlatex)
-(package! grip-mode)
-(package! vmd-mode)
-(package! markdown-soma)
+(package! fzf)

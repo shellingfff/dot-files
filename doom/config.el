@@ -82,12 +82,26 @@
 
 ;;  Set the font
 ;; (setq doom-font (font-spec :family "Hack" :size 20))
-(setq doom-font (font-spec :family "monospace" :size 28))
-(setq doom-unicode-font (font-spec :family "Noto Sans CJK SC" :size 26))
+;;(setq doom-font (font-spec :family "monospace" :size 28))
+;(setq doom-unicode-font (font-spec :family "Noto Sans CJK SC" :size 26))
+;;(setq doom-unicode-font (font-spec :family "Sarasa Mono SC" :size 26))
+(set-face-attribute 'default nil
+  :font "monospace 20"
+  :height 200
+  :weight 'medium)
+;; Setting Chinese Font
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+(set-fontset-font (frame-parameter nil 'font)
+		    charset
+		    ;(font-spec :family "Noto Sans CJK SC" :size 25)
+		    (font-spec :family "Sarasa Mono SC" :size 25)
+        )
+)
+
 
 ;;  Start up maxinized
 ;;(setq initial-frame-alist '((width . 60) (height . 20)))
-;;(setq initial-frame-alist '((fullscreen . maximized)))
+(setq initial-frame-alist '((fullscreen . maximized)))
 
 
 ;; Move in the wrap line
@@ -103,7 +117,7 @@
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-bottom)
 
 ;; org mode latex preview option
-(setq org-latex-create-formula-image-program 'dvisvgm)
+;(setq org-latex-create-formula-image-program 'dvisvgm)
 
 ;; markdown latex preview
 ;(eval-after-load "texfrag"
@@ -122,3 +136,38 @@
 ;; set browser for markdown preview
 (setq grip-url-browser "firefox")
 (setq browse-url-generic-program "firefox")
+
+;; disable word wrap
+(global-visual-line-mode 1)
+(setq word-wrap-by-category t)
+(setq word-wrap t)
+
+;; hide org markers
+(setq org-hide-emphasis-markers t)
+
+;; toggle org mode mark
+(define-key evil-normal-state-map (kbd "SPC m m") '(lambda () (interactive) 
+		(setq org-hide-emphasis-markers (not org-hide-emphasis-markers))
+		(font-lock-mode 1)
+	    ) 
+)
+
+;; set org heading font
+(defun my-org-faces ()
+    (set-face-attribute 'org-level-1 nil :height 1.0)
+    (set-face-attribute 'org-level-2 nil :height 1.0)
+    (set-face-attribute 'org-level-3 nil :height 1.0)
+    (set-face-attribute 'org-level-4 nil :height 1.0)
+    (set-face-attribute 'org-level-5 nil :height 1.0)
+    (set-face-attribute 'org-level-6 nil :height 1.0)
+    (set-face-attribute 'org-level-7 nil :height 1.0)
+    (set-face-attribute 'org-level-8 nil :height 1.0)
+    )
+(add-hook 'org-mode-hook #'my-org-faces)
+
+;; org bullet
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; fzf
+(define-key evil-normal-state-map (kbd "SPC f z") 'fzf-directory)
+
