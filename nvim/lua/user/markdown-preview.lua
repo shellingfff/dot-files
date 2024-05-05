@@ -7,7 +7,7 @@ local M = {
 }
 
 function M.config()
-  vim.g.mkdp_browser =  "/usr/bin/firefox"
+  -- vim.g.mkdp_browser =  "/etc/profiles/per-user/nix/bin/firefox"
   vim.g.mkdp_auto_start = 0
 
   local wk = require "which-key"
