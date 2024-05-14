@@ -1,3 +1,4 @@
+#!/run/current-system/sw/bin/zsh
 #!/bin/zsh
 
 function run {
@@ -20,14 +21,15 @@ sxhkd -c ~/.config/dwm/sxhkd/sxhkdrc &
 run "nm-applet"
 #xset dpms 180 &
 #xss-lock  -- slock  -n &
-#run "xfce4-power-manager"
-powerkit &
+xss-lock --transfer-sleep-lock -- i3lock --nofork &
+run "xfce4-power-manager"
+#powerkit &
 #run "blueberry-tray" 
-run "blueman-applet"
-run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
+#run "blueman-applet"
+#run "/usr/lib/xfce4/notifyd/xfce4-notifyd" 
 #run "/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd"
 
-run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" 
+#run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" 
 #picom -b  --config ~/.config/dwm/picom.conf
 picom -b
 run "numlockx on" 

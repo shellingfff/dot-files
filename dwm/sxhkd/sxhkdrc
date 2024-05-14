@@ -5,7 +5,7 @@ super + Return
     kitty
 
 super + o
-    slock
+    i3lock -i ~/.config/dwm/bg.png
 
 #Keyboard dependent
 super + KP_Enter
@@ -37,15 +37,15 @@ super + p
 
 #Raises volume
 XF86AudioRaiseVolume
-    amixer -D pulse set Master 10%+
+    amixer set Master 10%+
 
 #Lowers volume
 XF86AudioLowerVolume
-    amixer -D pulse set Master 10%-
+    amixer set Master 10%-
 
 #Mute
 XF86AudioMute
-    amixer -D pulse set Master 1+ toggle
+    amixer set Master 1+ toggle
 
 
 #PLAY
