@@ -1,9 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -22,7 +16,6 @@ autoload -Uz _zinit
 zinit load zsh-users/zsh-autosuggestions
 zinit load zdharma-continuum/fast-syntax-highlighting
 zinit load jeffreytse/zsh-vi-mode
-zinit light romkatv/powerlevel10k
 zinit load davidde/git
 
 
@@ -37,22 +30,40 @@ alias lg="lazygit"
 alias jo="joshuto"
 alias q="exit"
 #alias emacs="env GTK_IM_MODULE=xim emacs"
-alias pc="proxychains4 -f ~/.config/proxychains.conf -q"
+#alias pc="proxychains4 -f ~/.config/proxychains.conf -q"
+alias pc="proxychains -q"
 #alias mihomo="cat ~/Mine/Core/Scripts/start-clash | sh"
 #alias yacd="cat ~/Mine/Core/Scripts/start-yacd | sh"
 #alias ls="lsd -lh"
 alias android="~/Mine/Core/Scripts/waydroid.sh"
 alias music='mpv -no-audio-display -loop-file "$(find ~/Mine/Extra/Music/ -type f | fzf)"'
-alias nf='nvim $(fzf)'
+
+# Define a function instead of an alias
+function nf() {
+  local dir=$1
+  if [ ! -n $dir ]; then
+    $dir=.
+  fi
+  # Run fzf and store the result
+  fzfRes=$(/usr/bin/fd -H . $dir | /usr/bin/fzf)
+
+  # Check if fzf returned a non-empty result
+  if [ -n "$fzfRes" ]; then
+    # Open the selected file in nvim
+    nvim "$fzfRes"
+  fi
+}
+
 alias wechat="cat ~/Mine/Core/Scripts/dochat.sh | DOCHAT_SKIP_PULL=true zsh"
+alias ..="cd .."
 
 # the fuck
 eval $(thefuck --alias)
 
+# star ship
+eval "$(starship init zsh)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+### Environment Variables
 # Java 
 #export JAVA_HOME="/usr/local/java/jdk1.8.0_202"
 #export JAVA_HOME="/usr/lib/jvm/java-11-openjdk/"
@@ -73,17 +84,12 @@ eval $(thefuck --alias)
 #export CLASSPATH=$CLASSPATH:$M2_HOME/lib
 #export PATH=$PATH:$M2_HOME/bin
 
-
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
 # ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+#export GTK_IM_MODULE=ibus
+#export XMODIFIERS=@im=ibus
+#export QT_IM_MODULE=ibus
 
 # nextcloud
 
 # for ssh top
-export TERM=linux
+#export TERM=linux
