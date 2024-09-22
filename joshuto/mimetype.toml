@@ -8,6 +8,8 @@ audio_default = [
 ]
 
 image_default = [
+  { command = "qlmanage", args= ["-p"], fork = false, silent = false},
+  { command = "open", args= [], fork = false, silent = false},
   { command = "feh", args= ["__",], fork = true, silent = true},
   { command = "qimgv", args = [
     "--",
@@ -22,6 +24,7 @@ image_default = [
 ]
 
 video_default = [
+  { command = "iina", fork = true, silent = true },
   { command = "mpv", args = [
     "--",
   ], fork = true, silent = true },
@@ -42,6 +45,10 @@ text_default = [
   ] },
 ]
 
+html_default = [
+    { command = "brave", args = [], fork = false, silent = true }
+]
+
 reader_default = [{ command = "zathura" , fork = true, silent = true }]
 
 libreoffice_default = [{ command = "libreoffice", fork = true, silent = true }]
@@ -56,8 +63,10 @@ heic.inherit = "image_default"
 jpeg.inherit = "image_default"
 jpe.inherit = "image_default"
 jpg.inherit = "image_default"
+JPG.inherit = "image_default"
 pgm.inherit = "image_default"
 png.inherit = "image_default"
+PNG.inherit = "image_default"
 ppm.inherit = "image_default"
 webp.inherit = "image_default"
 
@@ -107,7 +116,7 @@ go.inherit = "text_default"
 h.inherit = "text_default"
 hpp.inherit = "text_default"
 hs.inherit = "text_default"
-html.inherit = "text_default"
+html.inherit = "html_default"
 ini.inherit = "text_default"
 java.inherit = "text_default"
 js.inherit = "text_default"

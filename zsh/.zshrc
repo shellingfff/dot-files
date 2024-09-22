@@ -1,3 +1,5 @@
+# hoembrew
+export PATH=/opt/homebrew/bin:$PATH
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -31,12 +33,17 @@ alias jo="joshuto"
 alias q="exit"
 #alias emacs="env GTK_IM_MODULE=xim emacs"
 #alias pc="proxychains4 -f ~/.config/proxychains.conf -q"
-alias pc="proxychains -q"
+alias pc="proxychains4 -q"
 #alias mihomo="cat ~/Mine/Core/Scripts/start-clash | sh"
 #alias yacd="cat ~/Mine/Core/Scripts/start-yacd | sh"
 #alias ls="lsd -lh"
 alias android="~/Mine/Core/Scripts/waydroid.sh"
 alias music='mpv -no-audio-display -loop-file "$(find ~/Mine/Extra/Music/ -type f | fzf)"'
+
+
+# for mac os
+alias typora="open -a typora"
+alias brave='open -a "Brave Browser.app"'
 
 # Define a function instead of an alias
 function nf() {
@@ -45,7 +52,7 @@ function nf() {
     $dir=.
   fi
   # Run fzf and store the result
-  fzfRes=$(/usr/bin/fd -H . $dir | /usr/bin/fzf)
+  fzfRes=$(fd -H . $dir | fzf)
 
   # Check if fzf returned a non-empty result
   if [ -n "$fzfRes" ]; then

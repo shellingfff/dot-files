@@ -27,6 +27,7 @@ import = [
 # https://github.com/alacritty/alacritty/tree/master#configuration
 
 [window]
+option_as_alt = "Both"
 
 opacity = 1.0
 
@@ -38,10 +39,10 @@ decorations_theme_variant = "Light" # "Dark"
 
 [font]
 
-normal.family = "Sarasa Mono SC"
-bold.family = "Sarasa Mono SC"
-italic.family = "Sarasa Mono SC"
-bold_italic.family = "Sarasa Mono SC"
+normal.family = "Hack Nerd Font"
+bold.family = "Hack Nerd Font"
+italic.family = "Hack Nerd Font"
+bold_italic.family = "Hack Nerd Font"
 
 size = 20.0
 
