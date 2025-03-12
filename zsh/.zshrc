@@ -65,7 +65,7 @@ alias wechat="cat ~/Mine/Core/Scripts/dochat.sh | DOCHAT_SKIP_PULL=true zsh"
 alias ..="cd .."
 
 # the fuck
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 # star ship
 eval "$(starship init zsh)"

@@ -1,4 +1,3 @@
-#!/run/current-system/sw/bin/zsh
 #!/bin/zsh
 
 function run {
@@ -16,6 +15,7 @@ function run {
 #run xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
 #run xrandr --output HDMI2 --right-of HDMI1 --auto
 #autorandr horizontal
+run xrandr --output HDMI-1 --mode "3840x2160" --scale 1.0x1.0
 
 sxhkd -c ~/.config/dwm/sxhkd/sxhkdrc &
 run "nm-applet"
