@@ -8,4 +8,6 @@
 #	pkill rofi
 #fi
 
-wofi --show drun --prompt 'Search...' --conf $HOME/.config/hypr/wofi/config  --style $HOME/.config/hypr/wofi/style.css --color $HOME/.config/hypr/wofi/colors
+#wofi --show drun --prompt 'Search...' --conf $HOME/.config/hypr/wofi/config  --style $HOME/.config/hypr/wofi/style.css --color $HOME/.config/hypr/wofi/colors
+
+rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/sway/rofi/launcher2.rasi

@@ -15,14 +15,14 @@ function run {
 #run xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
 #run xrandr --output HDMI2 --right-of HDMI1 --auto
 #autorandr horizontal
-run xrandr --output HDMI-1 --mode "3840x2160" --scale 1.0x1.0
+run xrandr --output HDMI-1 --mode "2048x1280" --scale 1.0x1.0
 
 sxhkd -c ~/.config/dwm/sxhkd/sxhkdrc &
 run "nm-applet"
 #xset dpms 180 &
 #xss-lock  -- slock  -n &
-xss-lock --transfer-sleep-lock -- i3lock --nofork &
-run "xfce4-power-manager"
+#xss-lock --transfer-sleep-lock -- i3lock --nofork &
+#run "xfce4-power-manager"
 #powerkit &
 #run "blueberry-tray" 
 #run "blueman-applet"
@@ -38,7 +38,7 @@ run "numlockx on"
 ~/.config/dwm/scripts/bar.sh &
 feh --bg-fill ~/.config/dwm/bg.png &
 #ibus-daemon -rxRd
-fcitx5 -d
+#fcitx5 -d
 #
 #run "mate-mouse-properties"
 #run "/usr/bin/mate-settings-daemon"

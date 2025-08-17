@@ -20,7 +20,7 @@ ${SCRIPTSDIR}/notifications &
 ${SCRIPTSDIR}/statusbar &
 
 # Input method
-fcitx5 -d
+#fcitx5 -d
 
 # Net tray
 nm-applet &

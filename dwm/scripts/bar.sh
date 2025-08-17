@@ -37,7 +37,7 @@ get_memory()
 
 get_battery()
 {
-    echo $(cat /sys/class/power_supply/BAT1/capacity)
+    echo $(cat /sys/class/power_supply/BAT0/capacity)
 }
 
 while true; do

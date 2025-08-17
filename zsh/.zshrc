@@ -45,18 +45,15 @@ alias music='mpv -no-audio-display -loop-file "$(find ~/Mine/Extra/Music/ -type 
 alias typora="open -a typora"
 alias brave='open -a "Brave Browser.app"'
 
-# Define a function instead of an alias
+# nvim $(fzf)
 function nf() {
   local dir=$1
   if [ ! -n $dir ]; then
     $dir=.
   fi
-  # Run fzf and store the result
   fzfRes=$(fd -H . $dir | fzf)
 
-  # Check if fzf returned a non-empty result
   if [ -n "$fzfRes" ]; then
-    # Open the selected file in nvim
     nvim "$fzfRes"
   fi
 }
@@ -100,3 +97,7 @@ eval "$(starship init zsh)"
 
 # for ssh top
 #export TERM=linux
+
+# go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
