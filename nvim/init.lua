@@ -1,4 +1,4 @@
--- lene numbers
+-- line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -13,6 +13,8 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 
 vim.opt.fileencodings = { "utf-8" }
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 -- leader key
 vim.g.mapleader = " "
