@@ -38,9 +38,9 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
--- Use H/L to switch between tabs
-vim.keymap.set("n", "H", "<cmd>tabp<CR>")
-vim.keymap.set("n", "L", "<cmd>tabn<CR>")
+-- Use H/L to switch between buffers
+vim.keymap.set("n", "H", "<cmd>bp<CR>")
+vim.keymap.set("n", "L", "<cmd>bn<CR>")
 
 vim.keymap.set("n", "gh", "<cmd>normal!H<CR>")
 vim.keymap.set("n", "gl", "<cmd>normal!L<CR>")
@@ -79,6 +79,7 @@ require("paq")({
 	"saghen/blink.cmp",
 	"stevearc/conform.nvim",
 	"nvim-lualine/lualine.nvim",
+	"nvim-mini/mini.nvim",
 })
 
 -- Colorscheme
@@ -86,7 +87,7 @@ vim.cmd([[colorscheme tokyonight]])
 
 -- Treesitter
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "bash", "c", "cpp", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+	ensure_installed = { "bash", "c", "cpp", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc", "xml" },
 	-- Autoinstall languages that are not installed
 	auto_install = true,
 	highlight = {
@@ -228,3 +229,5 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" },
 	},
 })
+
+require("mini.tabline").setup()

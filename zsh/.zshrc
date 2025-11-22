@@ -15,6 +15,8 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # plugins
+autoload -Uz compinit; compinit
+zinit light Aloxaf/fzf-tab
 zinit load zsh-users/zsh-autosuggestions
 zinit load zdharma-continuum/fast-syntax-highlighting
 zinit load jeffreytse/zsh-vi-mode
@@ -29,14 +31,14 @@ setopt appendhistory
 
 #aliases
 alias lg="lazygit"
-alias jo="joshuto"
+#alias jo="joshuto"
 alias q="exit"
 #alias emacs="env GTK_IM_MODULE=xim emacs"
 #alias pc="proxychains4 -f ~/.config/proxychains.conf -q"
 alias pc="proxychains4 -q"
 #alias mihomo="cat ~/Mine/Core/Scripts/start-clash | sh"
 #alias yacd="cat ~/Mine/Core/Scripts/start-yacd | sh"
-#alias ls="lsd -lh"
+alias ls="exa"
 alias android="~/Mine/Core/Scripts/waydroid.sh"
 alias music='mpv -no-audio-display -loop-file "$(find ~/Mine/Extra/Music/ -type f | fzf)"'
 
@@ -45,18 +47,107 @@ alias music='mpv -no-audio-display -loop-file "$(find ~/Mine/Extra/Music/ -type 
 alias typora="open -a typora"
 alias brave='open -a "Brave Browser.app"'
 
-# nvim $(fzf)
+# nvim $(fd and fzf)
 function nf() {
   local dir=$1
-  if [ ! -n $dir ]; then
-    $dir=.
+  if [ -z "$dir" ]; then
+    dir="."
   fi
+  # Run fzf and store the result
   fzfRes=$(fd -H . $dir | fzf)
 
+  # Check if fzf returned a non-empty result
   if [ -n "$fzfRes" ]; then
+    # Open the selected file in nvim
     nvim "$fzfRes"
   fi
 }
+
+# cd $(fd and fzf)
+function cf() {
+  local dir=$1
+  if [ -z $dir ]; then
+    dir="."
+  fi
+  # Run fzf and store the result
+  fzfRes=$(fd -H -t d . $dir | fzf)
+
+  # Check if fzf returned a non-empty result
+  if [ -n "$fzfRes" ]; then
+    # Open the selected file in nvim
+    cd "$fzfRes"
+  fi
+}
+
+# y for yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+# n for nnn
+n ()
+{
+    # Block nesting of nnn in subshells
+    [ "${NNNLVL:-0}" -eq 0 ] || {
+        echo "nnn is already running"
+        return
+    }
+
+    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
+    # see. To cd on quit only on ^G, remove the "export" and make sure not to
+    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
+    #      NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    # The command builtin allows one to alias nnn to n, if desired, without
+    # making an infinitely recursive alias
+    command nnn "$@"
+
+    [ ! -f "$NNN_TMPFILE" ] || {
+        . "$NNN_TMPFILE"
+        rm -f -- "$NNN_TMPFILE" > /dev/null
+    }
+}
+
+# jo for joshuto
+function jo() {
+	ID="$$"
+	mkdir -p /tmp/$USER
+	OUTPUT_FILE="/tmp/$USER/joshuto-cwd-$ID"
+	env joshuto --output-file "$OUTPUT_FILE" $@
+	exit_code=$?
+
+	case "$exit_code" in
+		# regular exit
+		0)
+			;;
+		# output contains current directory
+		101)
+			JOSHUTO_CWD=$(cat "$OUTPUT_FILE")
+			cd "$JOSHUTO_CWD"
+			;;
+		# output selected files
+		102)
+			;;
+		*)
+			echo "Exit code: $exit_code"
+			;;
+	esac
+}
+
+# proxy env
+alias pe="export http_proxy=http:127.0.0.1:4444;export https_proxy=http://127.0.0.1:4444"
 
 alias wechat="cat ~/Mine/Core/Scripts/dochat.sh | DOCHAT_SKIP_PULL=true zsh"
 alias ..="cd .."
@@ -101,3 +192,5 @@ eval "$(starship init zsh)"
 # go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+export EDITOR=nvim

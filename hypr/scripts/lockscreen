@@ -1,3 +1,4 @@
 #!/bin/bash
 #
-swaylock -f -C ~/.config/hypr/swaylock/config
+#swaylock -f -C ~/.config/hypr/swaylock/config
+hyprlock

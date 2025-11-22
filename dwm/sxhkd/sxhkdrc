@@ -2,7 +2,7 @@
 
 # terminal
 super + Return
-    kitty
+    ghostty
 
 super + o
     i3lock -i ~/.config/dwm/bg.png

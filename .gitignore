@@ -218,3 +218,8 @@ go/telemetry/local
 qt6ct
 gnome-layout-switcher.conf
 manjaro-hello.json
+gthumb
+systemd/user
+zed
+monitors.xml
+monitors.xml~

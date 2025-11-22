@@ -1,0 +1,16 @@
+font-family = "Hack Nerd Font Mono"
+window-save-state = default
+macos-titlebar-style = native
+font-size = 16
+
+# mac os
+#keybind = super+bracket_right=next_tab
+#keybind = super+bracket_left=previous_tab
+#keybind = super+o=new_tab
+#keybind = super+r=prompt_surface_title
+
+# linux
+keybind = alt+right_bracket=next_tab
+keybind = alt+left_bracket=previous_tab
+keybind = alt+o=new_tab
+keybind = alt+r=prompt_surface_title

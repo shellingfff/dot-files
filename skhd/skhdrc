@@ -75,7 +75,7 @@
 # TO INTERACT WITH THE YABAI WM. THESE ARE SUPPOSED TO BE USED AS #
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
-rcmd - return : kitty
+rcmd - return : ghostty
 
 # focus window
 rcmd - h : yabai -m window --focus west
