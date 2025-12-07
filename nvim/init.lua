@@ -1,6 +1,6 @@
 -- line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Save undo history
 vim.opt.undofile = true
@@ -70,15 +70,11 @@ require("paq")({
 	"nvim-tree/nvim-web-devicons",
 	"nvim-tree/nvim-tree.lua",
 	"nvim-lua/plenary.nvim",
-	"BurntSushi/ripgrep",
-	"sharkdp/fd",
-	"nvim-telescope/telescope-fzf-native.nvim",
 	"nvim-telescope/telescope.nvim",
 	"neovim/nvim-lspconfig",
 	"rafamadriz/friendly-snippets",
 	"saghen/blink.cmp",
 	"stevearc/conform.nvim",
-	"nvim-lualine/lualine.nvim",
 	"nvim-mini/mini.nvim",
 })
 
@@ -87,7 +83,7 @@ vim.cmd([[colorscheme tokyonight]])
 
 -- Treesitter
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "bash", "c", "cpp", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc", "xml" },
+	ensure_installed = { "bash", "c", "cpp", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
 	-- Autoinstall languages that are not installed
 	auto_install = true,
 	highlight = {
@@ -168,9 +164,10 @@ vim.lsp.config("lua_ls", {
 			},
 			-- Make the server aware of Neovim runtime files
 			workspace = {
-				checkThirdParty = false,
+				checkThirdParty = true,
 				library = {
 					vim.env.VIMRUNTIME,
+					"/Users/mac/Work/Project/clickhouse/Code/slr",
 					-- Depending on the usage, you might want to add additional paths
 					-- here.
 					-- '${3rd}/luv/library'
@@ -199,7 +196,20 @@ require("blink.cmp").setup({
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
 	},
-	keymap = { preset = "enter" },
+	keymap = {
+		preset = "enter",
+		["<Tab>"] = {
+			function(cmp)
+				if cmp.snippet_active() then
+					return cmp.accept()
+				else
+					return cmp.select_and_accept()
+				end
+			end,
+			"snippet_forward",
+			"fallback",
+		},
+	},
 	fuzzy = { implementation = "lua" },
 })
 
@@ -212,6 +222,7 @@ require("conform").setup({
 	},
 })
 
+-- format when write
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
@@ -219,15 +230,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
-require("lualine").setup({
-	sections = {
-		lualine_b = {},
-		lualine_y = {},
-	},
-	options = {
-		component_separators = { left = "|", right = "|" },
-		section_separators = { left = "", right = "" },
-	},
-})
-
 require("mini.tabline").setup()
+require("mini.statusline").setup()

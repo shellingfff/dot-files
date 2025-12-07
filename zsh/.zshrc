@@ -54,7 +54,7 @@ function nf() {
     dir="."
   fi
   # Run fzf and store the result
-  fzfRes=$(fd -H . $dir | fzf)
+  fzfRes=$(fd -H -E .cache -E .local . $dir | fzf)
 
   # Check if fzf returned a non-empty result
   if [ -n "$fzfRes" ]; then
