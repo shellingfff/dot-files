@@ -82,7 +82,7 @@ require("paq")({
 vim.cmd([[colorscheme tokyonight]])
 
 -- Treesitter
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
 	ensure_installed = { "bash", "c", "cpp", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
 	-- Autoinstall languages that are not installed
 	auto_install = true,

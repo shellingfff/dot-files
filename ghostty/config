@@ -1,7 +1,7 @@
 font-family = "Hack Nerd Font Mono"
 window-save-state = default
 macos-titlebar-style = native
-font-size = 16
+font-size = 14
 gtk-toolbar-style = flat
 window-theme = ghostty
 
@@ -16,3 +16,18 @@ keybind = alt+right_bracket=next_tab
 keybind = alt+left_bracket=previous_tab
 keybind = alt+o=new_tab
 keybind = alt+r=prompt_surface_title
+
+# split
+keybind = alt+v=new_split:down
+keybind = alt+k=goto_split:up
+keybind = alt+shift+l=resize_split:right,10
+keybind = alt+l=goto_split:right
+keybind = alt+shift+equal=equalize_splits
+keybind = alt+h=goto_split:left
+keybind = alt+shift+j=resize_split:down,10
+keybind = alt+shift+h=resize_split:left,10
+keybind = alt+j=goto_split:down
+keybind = alt+b=new_split:right
+keybind = alt+x=close_surface
+keybind = alt+f=toggle_split_zoom
+

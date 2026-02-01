@@ -44,8 +44,8 @@ alias music='mpv -no-audio-display -loop-file "$(find ~/Mine/Extra/Music/ -type 
 
 
 # for mac os
-alias typora="open -a typora"
-alias brave='open -a "Brave Browser.app"'
+#alias typora="open -a typora"
+#alias brave='open -a "Brave Browser.app"'
 
 # nvim $(fd and fzf)
 function nf() {
@@ -89,7 +89,7 @@ function y() {
 }
 
 # n for nnn
-n ()
+n()
 {
     # Block nesting of nnn in subshells
     [ "${NNNLVL:-0}" -eq 0 ] || {
@@ -146,8 +146,16 @@ function jo() {
 	esac
 }
 
+function daily() {
+    filename="$(date +"%Y %m %d").md"
+    if [[ ! -e ${filename} ]]; then
+        touch ${filename}
+    fi
+    marktext ${filename}
+}
+
 # proxy env
-alias pe="export http_proxy=http:127.0.0.1:4444;export https_proxy=http://127.0.0.1:4444"
+alias pe="export ALL_PROXY=http://127.0.0.1:4444"
 
 alias wechat="cat ~/Mine/Core/Scripts/dochat.sh | DOCHAT_SKIP_PULL=true zsh"
 alias ..="cd .."

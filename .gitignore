@@ -134,7 +134,6 @@ emacs/projectile-bookmarks.eld
 emacs/recentf
 emacs/sessions
 emacs.bak
-fish
 gnome-control-center/backgrounds
 gtk-2.0
 keepassxc
@@ -223,3 +222,8 @@ systemd/user
 zed
 monitors.xml
 monitors.xml~
+cachyos/cachyos-hello
+mozilla/firefox/Crash Reports
+net.imput.helium
+cachyos-hello.json
+gnome-xdg-terminals.list

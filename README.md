@@ -47,7 +47,7 @@ sudo pacman -S --needed xdg-desktop-portal-gnome  xdg-desktop-portal flameshot
 `wayland` window manager:
 
 ```shell
-sudo pacman -S --needed swappy slurp grim 
+sudo pacman -S --needed swappy slurp grim satty
 ```
 
 ### Packages
