@@ -227,3 +227,5 @@ mozilla/firefox/Crash Reports
 net.imput.helium
 cachyos-hello.json
 gnome-xdg-terminals.list
+/.mozilla/firefox/Crash Reports
+/org.gnome.Ptyxis
