@@ -39,6 +39,7 @@ require("lazy").setup({
         "saghen/blink.cmp",
         "stevearc/conform.nvim",
         "nvim-mini/mini.nvim",
+        "jghauser/follow-md-links.nvim"
     }
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.

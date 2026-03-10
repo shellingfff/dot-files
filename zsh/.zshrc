@@ -147,11 +147,13 @@ function jo() {
 }
 
 function daily() {
+    cd ~/Mine/Daily/
     filename="$(date +"%Y %m %d").md"
     if [[ ! -e ${filename} ]]; then
         touch ${filename}
     fi
     marktext ${filename}
+    cd -
 }
 
 # proxy env
@@ -202,3 +204,5 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
 export EDITOR=nvim
+
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH

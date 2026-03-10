@@ -229,3 +229,4 @@ cachyos-hello.json
 gnome-xdg-terminals.list
 /.mozilla/firefox/Crash Reports
 /org.gnome.Ptyxis
+/rclone
