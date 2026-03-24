@@ -230,3 +230,5 @@ gnome-xdg-terminals.list
 /.mozilla/firefox/Crash Reports
 /org.gnome.Ptyxis
 /rclone
+/mozilla/firefox
+/rncbc.org

@@ -200,8 +200,7 @@ eval "$(starship init zsh)"
 #export TERM=linux
 
 # go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
+#export PATH=$PATH:/usr/local/go/bin
 
 export EDITOR=nvim
 
