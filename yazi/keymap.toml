@@ -1,5 +1,0 @@
-[help]
-prepend_keymap = [
-	{ on = "/", run = "filter", desc = "Use / to filter" }
-]
-
