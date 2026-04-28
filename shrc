@@ -99,6 +99,14 @@ function jo() {
 }
 
 # proxy env
-alias pe="export ALL_PROXY=http://127.0.0.1:4444"
+alias pe="export ALL_PROXY=http://127.0.0.1:4444; export http_proxy=http://127.0.0.1:4444; export https_proxy=http://127.0.0.1:4444; export socks_proxy=socks://127.0.0.1:4444"
 
 export EDITOR=nvim
+
+# go
+export PATH=$PATH:/usr/local/go/bin
+
+# opencode
+export PATH=/home/fed/.opencode/bin:$PATH
+export PATH=/home/fed/go/bin:$PATH
+
