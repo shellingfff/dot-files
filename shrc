@@ -101,6 +101,8 @@ function jo() {
 # proxy env
 alias pe="export ALL_PROXY=http://127.0.0.1:4444; export http_proxy=http://127.0.0.1:4444; export https_proxy=http://127.0.0.1:4444; export socks_proxy=socks://127.0.0.1:4444"
 
+alias daily="nvim ~/Core/Daily/$(date +%F).md"
+
 export EDITOR=nvim
 
 # go

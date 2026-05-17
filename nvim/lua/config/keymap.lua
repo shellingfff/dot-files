@@ -9,6 +9,7 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 vim.keymap.set("n", "<leader>fb", builtin.current_buffer_fuzzy_find, { desc = "[F]ind Buffer" })
 vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Go to References" })
 
+-- lsp
 local lsp_normal_mappings = {
 	{ key = "gK", cmd = vim.lsp.buf.hover, desc = "Show hover" },
 	{ key = "gd", cmd = vim.lsp.buf.definition, desc = "Go to Definition" },
@@ -22,3 +23,9 @@ for _, map in ipairs(lsp_normal_mappings) do
 	vim.keymap.set("n", map.key, map.cmd, { desc = map.desc })
 end
 
+-- markdown format url
+vim.keymap.set("n", "<leader>ml", function()
+  local url = vim.fn.expand("<cfile>")
+  local md = "[](" .. url .. ")"
+  vim.cmd("normal ciW" .. md)
+end)

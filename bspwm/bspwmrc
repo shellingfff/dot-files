@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-sxhkd &
+sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 polybar &
 feh --bg-fill ~/.config/bspwm/bg.jpeg &
 

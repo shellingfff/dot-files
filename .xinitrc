@@ -1,3 +1,3 @@
 
 xrdb -merge ~/.Xresources
-exec bspwm
+exec dwm
