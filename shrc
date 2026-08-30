@@ -6,7 +6,7 @@ function nf() {
     dir="."
   fi
   # Run fzf and store the result
-  fzfRes=$(fd -H -E .cache -E .local . $dir | fzf)
+  fzfRes=$(fd -H -E .cache -E .local . $dir | fzf --cycle)
 
   # Check if fzf returned a non-empty result
   if [ -n "$fzfRes" ]; then
@@ -22,7 +22,7 @@ function cf() {
     dir="."
   fi
   # Run fzf and store the result
-  fzfRes=$(fd -H -t d . $dir | fzf)
+  fzfRes=$(fd -H -t d . $dir | fzf --cycle)
 
   # Check if fzf returned a non-empty result
   if [ -n "$fzfRes" ]; then
@@ -105,6 +105,70 @@ alias daily="nvim ~/Core/Daily/$(date +%F).md"
 
 export EDITOR=nvim
 
+notetag() {
+    if [ "$#" -lt 2 ]; then
+        echo "usage: notetag FILE TAG [TAG ...]" >&2
+        return 2
+    fi
+
+    local file="$1"
+    shift
+
+    local tags=()
+    local tag
+
+    for tag in "$@"; do
+        case "$tag" in
+            \#*) tags+=("$tag") ;;
+            *)   tags+=("#$tag") ;;
+        esac
+    done
+
+    awk -v tags="${tags[*]}" '
+        BEGIN {
+            n = split(tags, required, " ")
+        }
+
+        function flush() {
+            if (matched == n)
+                printf "%s", block
+
+            block = ""
+            delete found
+            matched = 0
+        }
+
+        /^<>$/ {
+            flush()
+            block = NR ":" $0 "\n"
+            in_block = 1
+            next
+        }
+
+        /^<\/>$/ {
+            if (in_block) {
+                block = block NR ":" $0 "\n"
+                flush()
+                in_block = 0
+            }
+            next
+        }
+
+        in_block {
+            block = block NR ":" $0 "\n"
+
+            for (i = 1; i <= NF; i++) {
+                for (j = 1; j <= n; j++) {
+                    if (!found[j] && $i == required[j]) {
+                        found[j] = 1
+                        matched++
+                    }
+                }
+            }
+        }
+    ' "$file"
+}
+
 # go
 export PATH=$PATH:/usr/local/go/bin
 
@@ -112,3 +176,6 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=/home/fed/.opencode/bin:$PATH
 export PATH=/home/fed/go/bin:$PATH
 
+
+# opencode
+export PATH=/home/cach/.opencode/bin:$PATH
