@@ -1,32 +1,26 @@
 
-# nvim $(fd and fzf)
+# nvim $(fd | fzf)
 function nf() {
   local dir=$1
   if [ -z "$dir" ]; then
     dir="."
   fi
-  # Run fzf and store the result
   fzfRes=$(fd -H -E .cache -E .local . $dir | fzf --cycle)
 
-  # Check if fzf returned a non-empty result
   if [ -n "$fzfRes" ]; then
-    # Open the selected file in nvim
     nvim "$fzfRes"
   fi
 }
 
-# cd $(fd and fzf)
+# cd $(fd | fzf)
 function cf() {
   local dir=$1
   if [ -z $dir ]; then
     dir="."
   fi
-  # Run fzf and store the result
   fzfRes=$(fd -H -t d . $dir | fzf --cycle)
 
-  # Check if fzf returned a non-empty result
   if [ -n "$fzfRes" ]; then
-    # Open the selected file in nvim
     cd "$fzfRes"
   fi
 }
@@ -98,11 +92,6 @@ function jo() {
 	esac
 }
 
-# proxy env
-alias pe="export ALL_PROXY=http://127.0.0.1:4444; export http_proxy=http://127.0.0.1:4444; export https_proxy=http://127.0.0.1:4444; export socks_proxy=socks://127.0.0.1:4444"
-
-alias daily="nvim ~/Core/Daily/$(date +%F).md"
-
 export EDITOR=nvim
 
 notetag() {
@@ -141,8 +130,7 @@ notetag() {
         /^<>$/ {
             flush()
             block = NR ":" $0 "\n"
-            in_block = 1
-            next
+            in_block = 1 next
         }
 
         /^<\/>$/ {
@@ -171,11 +159,3 @@ notetag() {
 
 # go
 export PATH=$PATH:/usr/local/go/bin
-
-# opencode
-export PATH=/home/fed/.opencode/bin:$PATH
-export PATH=/home/fed/go/bin:$PATH
-
-
-# opencode
-export PATH=/home/cach/.opencode/bin:$PATH

@@ -1,4 +1,4 @@
-font-family = "Hack Nerd Font Mono"
+#font-family = "Hack Nerd Font Mono"
 window-save-state = default
 macos-titlebar-style = native
 font-size = 14
