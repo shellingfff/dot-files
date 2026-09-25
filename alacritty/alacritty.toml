@@ -29,20 +29,15 @@ general.import = [
 [window]
 option_as_alt = "Both"
 
-opacity = 1.0
-
-padding.x = 10
-padding.y = 10
-
-decorations = "Full"
-decorations_theme_variant = "Light" # "Dark"
+#decorations = "Full"
+decorations_theme_variant = "Dark" # "Dark"
 
 [font]
 
-#normal.family = "Hack Nerd Font Mono"
-#bold.family = "Hack Nerd Font Mono"
-#italic.family = "Hack Nerd Font Mono"
-#bold_italic.family = "Hack Nerd Font Mono"
+normal.family = "Hack Nerd Font Mono"
+bold.family = "Hack Nerd Font Mono"
+italic.family = "Hack Nerd Font Mono"
+bold_italic.family = "Hack Nerd Font Mono"
 
 size = 20.0
 
