@@ -1,0 +1,18 @@
+// -*- mode: jsonc -*-
+{
+    "height": 20, // Waybar height (to be removed for auto height)
+    "spacing": 4, // Gaps between modules (4px)
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window",
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon} {windows}",
+        "workspace-taskbar": {
+            "enable": true,
+            "update-active-window": true,
+            "format": "{icon}",
+        "icon-size": 18
+        }
+    }
+}
