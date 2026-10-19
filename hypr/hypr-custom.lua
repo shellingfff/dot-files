@@ -41,6 +41,19 @@ hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 
+-- Resize windows
+hl.bind(mainMod .. " + SHIFT + H",
+    hl.dsp.window.resize({ x = -30, y = 0, relative = true }))
+
+hl.bind(mainMod .. " + SHIFT + L",
+    hl.dsp.window.resize({ x = 30, y = 0, relative = true }))
+
+hl.bind(mainMod .. " + SHIFT + K",
+    hl.dsp.window.resize({ x = 0, y = -30, relative = true }))
+
+hl.bind(mainMod .. " + SHIFT + J",
+    hl.dsp.window.resize({ x = 0, y = 30, relative = true }))
+
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + bracketleft", hl.dsp.focus({ workspace = "r-1" }))
 hl.bind(mainMod .. " + bracketright", hl.dsp.focus({ workspace = "r+1" }))
