@@ -24,6 +24,9 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.opt.termguicolors = true
 
+vim.o.title = true
+vim.o.titlestring = "nvim %t"
+
 
 vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },

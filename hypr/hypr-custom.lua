@@ -54,7 +54,13 @@ hl.bind(mainMod .. " + SHIFT + K",
 hl.bind(mainMod .. " + SHIFT + J",
     hl.dsp.window.resize({ x = 0, y = 30, relative = true }))
 
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(
+    mainMod .. " + F",
+    hl.dsp.window.fullscreen({
+        mode = "maximized",
+        action = "toggle",
+    })
+)
 hl.bind(mainMod .. " + bracketleft", hl.dsp.focus({ workspace = "r-1" }))
 hl.bind(mainMod .. " + bracketright", hl.dsp.focus({ workspace = "r+1" }))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(
