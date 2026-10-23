@@ -66,3 +66,7 @@ hl.bind(mainMod .. " + bracketright", hl.dsp.focus({ workspace = "r+1" }))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(
   "sh -c 'grim -g \"$(slurp)\" - | satty --filename - --output-filename \"$HOME/Pictures/Screenshots/satty-$(date +%Y%m%d-%H%M%S).png\"'"
 ))
+
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(
+    [[grim -g "$(slurp)" - | satty --filename - --output-filename "$HOME/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"]]
+))
