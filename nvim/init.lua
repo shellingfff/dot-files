@@ -29,12 +29,12 @@ vim.o.title = true
 vim.o.titlestring = "nvim %t"
 
 
-vim.pack.add({
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-    { src = "https://github.com/folke/tokyonight.nvim" },
-    { src = "https://github.com/nvim-mini/mini.nvim" },
-    { src = "https://github.com/jghauser/follow-md-links.nvim" },
-})
+--vim.pack.add({
+--    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+--    { src = "https://github.com/folke/tokyonight.nvim" },
+--    { src = "https://github.com/nvim-mini/mini.nvim" },
+--    --{ src = "https://github.com/shellingfff/follow-md-links.nvim" },
+--})
 
 -- ============================================================
 -- Keymaps
@@ -147,9 +147,10 @@ require("mini.pick").setup()
 -- Follow Markdown links
 -- ============================================================
 
---require("follow-md-links").setup({
---    browsers = { "firefox", "chromium" },
---})
+require("follow-md-links").setup({
+    browsers = { "firefox", "chromium" },
+    copy_only = true
+})
 
 -- ============================================================
 -- Autocmds
