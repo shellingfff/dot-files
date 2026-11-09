@@ -28,14 +28,6 @@ vim.opt.termguicolors = true
 vim.o.title = true
 vim.o.titlestring = "nvim %t"
 
-
---vim.pack.add({
---    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
---    { src = "https://github.com/folke/tokyonight.nvim" },
---    { src = "https://github.com/nvim-mini/mini.nvim" },
---    --{ src = "https://github.com/shellingfff/follow-md-links.nvim" },
---})
-
 -- ============================================================
 -- Keymaps
 -- ============================================================
